@@ -1,6 +1,6 @@
 NAME = philosophers
 
-SRCS =	$(shell find ./philo -iname "*.c")
+SRCS =	$(shell find ./src -iname "*.c")
 OBJS = $(SRCS:.c=.o)
 
 CC = cc

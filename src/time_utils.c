@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   time_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 15:56:06 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/09/28 15:59:06 by nbuquet-         ###   ########.fr       */
+/*   Created: 2026/02/12 01:10:49 by nbuquet-          #+#    #+#             */
+/*   Updated: 2026/02/12 01:13:38 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#include "philo.h"
 
-#include <stdio.h>      // printf
-#include <stdlib.h>     // malloc, free
-#include <string.h>     // memset
-#include <unistd.h>     // write, usleep
-#include <sys/time.h>   // gettimeofday
-#include <pthread.h>    // Todas las funciones pthread_*
+// Returns the current system time in milliseconds.
+size_t	get_time(void)
+{
+	struct timeval	current_time;
 
-#endif
+	if (gettimeofday(&current_time, NULL) == -1)
+		ft_error("gettimeofday: error");
+	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
+}
