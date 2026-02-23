@@ -6,13 +6,13 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 00:05:05 by nbuquet-          #+#    #+#             */
-/*   Updated: 2026/02/12 01:10:25 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2026/02/22 16:02:30 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	print_routine(char *msg, t_philo *philo)
+void	print_routine(char *msg, t_philo *philo)
 {
 	size_t	time;
 
@@ -29,7 +29,7 @@ void	eat(t_philo *philo)
 	print_routine("has taken a fork", philo);
 	if (philo->data->number_of_philosophers == 1)
 	{
-		usleep(philo->data->time_to_die);
+		ft_usleep(philo->data->time_to_die);
 		pthread_mutex_unlock(philo->r_fork);
 		return ;
 	}
@@ -41,7 +41,7 @@ void	eat(t_philo *philo)
 	philo->last_meal = get_time();
 	philo->meal_c++;
 	pthread_mutex_unlock(&philo->data->meal_lock);
-	usleep(philo->data->time_to_eat);
+	ft_usleep(philo->data->time_to_eat);
 	philo->eating = 0;
 	pthread_mutex_unlock(philo->l_fork);
 	pthread_mutex_unlock(philo->r_fork);
@@ -50,7 +50,7 @@ void	eat(t_philo *philo)
 void	dream(t_philo *philo)
 {
 	print_routine("is sleeping", philo);
-	usleep(philo->data->time_to_sleep);
+	ft_usleep(philo->data->time_to_sleep);
 }
 
 void	think(t_philo *philo)

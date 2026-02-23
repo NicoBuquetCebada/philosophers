@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 15:56:06 by nbuquet-          #+#    #+#             */
-/*   Updated: 2026/02/12 01:08:25 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2026/02/22 17:00:13 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,16 @@ void					init_philos(t_data *data, t_philo *philos,
 // THREADS
 int						check_dead(t_philo *philo);
 void					*routine(void *pointer);
-int						thread_create(t_data *data);
+int						thread_create(t_data *data, pthread_mutex_t *forks);
 
 // ROUTINE
 void					think(t_philo *philo);
 void					dream(t_philo *philo);
 void					eat(t_philo *philo);
+void					print_routine(char *msg, t_philo *philo);
+
+// MONITORING
+void					*monitor(void *pointer);
 
 // LIBFT UTILS
 size_t					ft_strlen(const char *s);
@@ -76,9 +80,11 @@ int						ft_isdigit(int c);
 
 // ERROR UTILS
 int						ft_error(char *msg);
+void					clean_data(t_data *data, pthread_mutex_t *forks, char	*msg);
 int						check_args(char **av);
 
 // TIME UTILS
 size_t					get_time(void);
+int						ft_usleep(size_t milliseconds);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 23:39:03 by nbuquet-          #+#    #+#             */
-/*   Updated: 2026/02/12 01:30:33 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2026/02/22 16:58:10 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	*routine(void *pointer)
 
 	philo = (t_philo *)pointer;
 	if (philo->id % 2 == 0)
-		usleep(1); // ¿no funciona bien?
-	while (!check_dead(philo)) // bucle infinito hasta monitorizar
+		ft_usleep(1);
+	while (!check_dead(philo))
 	{
 		eat(philo);
 		dream(philo);
@@ -37,23 +37,28 @@ void	*routine(void *pointer)
 	return (pointer);
 }
 
-int	thread_create(t_data *data) // falta monitorizar
+int	thread_create(t_data *data, pthread_mutex_t *forks)
 {
-	int	i;
+	int			i;
+	pthread_t	observer;
 
+	if (pthread_create(&observer, NULL, &monitor, data) != 0)
+		clean_data(data, forks, "thread: creation error");
 	i = 0;
 	while (i < data->number_of_philosophers)
 	{
 		if (pthread_create(&data->philos[i].thread, NULL, &routine,
 				&data->philos[i]) != 0)
-			ft_error("thread: creation error"); // clean
+			clean_data(data, forks, "thread: creation error");
 		i++;
 	}
+	if (pthread_join(observer, NULL) != 0)
+		clean_data(data, forks, "thread: join error");
 	i = 0;
 	while (i < data->number_of_philosophers)
 	{
 		if (pthread_join(data->philos[i].thread, NULL) != 0)
-			ft_error("thread: join error"); // clean
+			clean_data(data, forks, "thread: join error");
 		i++;
 	}
 	return (0);

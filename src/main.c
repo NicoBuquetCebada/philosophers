@@ -6,13 +6,13 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 16:00:53 by nbuquet-          #+#    #+#             */
-/*   Updated: 2026/02/12 01:23:27 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2026/02/22 16:57:47 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// TODO: monitoring, limpieza, ¿usleep?
+// TODO: limpieza
 int	main(int ac, char **av)
 {
 	t_data			data;
@@ -26,5 +26,6 @@ int	main(int ac, char **av)
 	init_data(&data, philos, av);
 	init_forks(forks, data.number_of_philosophers);
 	init_philos(&data, philos, forks);
-	thread_create(&data);
+	thread_create(&data, forks);
+	clean_data(&data, forks, NULL);
 }
