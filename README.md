@@ -106,14 +106,4 @@ All generated content was reviewed, tested, and fully understood before being in
 
 ---
 
-## Technical Decisions
-
-* POSIX threads (`pthread`) were used for philosopher threads.
-* Mutexes were used to protect shared resources (forks and logs).
-* A monitoring mechanism ensures philosophers do not exceed `time_to_die`.
-* Precise timing functions were implemented to improve sleep accuracy.
-* No global variables were used, in accordance with project constraints.
-
----
-
 This project was developed following the 42 Norm and subject requirements.
