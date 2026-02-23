@@ -1,10 +1,10 @@
-NAME = philosophers
+NAME = philo
 
-SRCS =	$(shell find ./src -iname "*.c")
+SRCS =	$(shell find ./philo -iname "*.c")
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -pthread -Wall -Wextra -Werror -Wunreachable-code -Ofast
+CFLAGS = -pthread -Wall -Wextra -Werror
 
 all: $(NAME)
 
@@ -18,7 +18,7 @@ clean:
 	@rm -rf $(OBJS)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

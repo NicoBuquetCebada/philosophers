@@ -42,7 +42,7 @@ void	init_forks(pthread_mutex_t *forks, int number_of_philosophers)
 
 void	init_philos(t_data *data, t_philo *philos, pthread_mutex_t *forks)
 {
-	int	i;
+	int		i;
 	size_t	current;
 
 	i = 0;

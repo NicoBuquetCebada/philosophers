@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 15:31:48 by nbuquet-          #+#    #+#             */
-/*   Updated: 2026/02/22 16:16:13 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2026/02/23 19:22:21 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	check_meals(t_data *data)
 	while (i < data->number_of_philosophers)
 	{
 		pthread_mutex_lock(&data->meal_lock);
-		if (data->philos[i].meal_c 
+		if (data->philos[i].meal_c
 			>= data->number_of_times_each_philosopher_must_eat)
 			finished_eating++;
 		pthread_mutex_unlock(&data->meal_lock);
@@ -72,11 +72,11 @@ static int	check_meals(t_data *data)
 
 void	*monitor(void *pointer)
 {
-    t_data	*data;
+	t_data	*data;
 
-    data = (t_data *)pointer;
-    while (1)
-        if (!check_alive(data) || check_meals(data))
-            break ;
-    return (pointer);
+	data = (t_data *)pointer;
+	while (1)
+		if (!check_alive(data) || check_meals(data))
+			break ;
+	return (pointer);
 }

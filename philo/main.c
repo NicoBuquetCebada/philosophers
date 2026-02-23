@@ -6,13 +6,12 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 16:00:53 by nbuquet-          #+#    #+#             */
-/*   Updated: 2026/02/22 16:57:47 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2026/02/23 19:20:16 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// TODO: limpieza
 int	main(int ac, char **av)
 {
 	t_data			data;

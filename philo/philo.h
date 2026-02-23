@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 15:56:06 by nbuquet-          #+#    #+#             */
-/*   Updated: 2026/02/22 17:00:13 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2026/02/23 18:51:37 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ int						ft_isdigit(int c);
 
 // ERROR UTILS
 int						ft_error(char *msg);
-void					clean_data(t_data *data, pthread_mutex_t *forks, char	*msg);
+void					clean_data(t_data *data, pthread_mutex_t *forks,
+							char *msg);
 int						check_args(char **av);
 
 // TIME UTILS
