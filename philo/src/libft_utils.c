@@ -22,28 +22,23 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
-	int	i;
-	int	num;
-	int	n;
+	long long	res;
+	int			i;
+	int			digit;
 
-	n = 1;
-	num = 0;
+	res = 0;
 	i = 0;
-	while (nptr[i] == '\n' || nptr[i] == '\t' || nptr[i] == '\f'
-		|| nptr[i] == '\r' || nptr[i] == '\v' || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (nptr[i] == '-')
-			n = -1;
+		digit = str[i] - '0';
+		if (res > (INT_MAX - digit) / 10)
+			return (-1);
+		res = res * 10 + digit;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		num = num * 10 + (nptr[i++] - '0');
-	num *= n;
-	return (num);
+	return ((int)res);
 }
 
 int	ft_isdigit(int c)

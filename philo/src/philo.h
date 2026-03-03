@@ -19,6 +19,7 @@
 # include <string.h>   // memset
 # include <sys/time.h> // gettimeofday
 # include <unistd.h>   // write, usleep
+# include <limits.h>
 
 # define MAX_PHILOS 200
 

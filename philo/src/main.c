@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	pthread_mutex_t	forks[MAX_PHILOS];
 
 	if (ac < 5 || ac > 6)
-		return (ft_error("Wrong number of arguments"));
+		return (ft_error("wrong number of arguments"));
 	if (check_args(av))
 		return (1);
 	init_data(&data, philos, av);

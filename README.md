@@ -4,7 +4,7 @@
 
 ## Description
 
-Philosophers is a concurrency project from the 42 curriculum based on the classical *Dining Philosophers Problem*. The goal of this project is to understand and implement multithreading concepts in C, focusing on thread creation, synchronization mechanisms, and race condition prevention.
+Philosophers is a project from the 42 curriculum based on the classical *Dining Philosophers Problem*. The goal of this project is to understand and implement multithreading concepts in C, focusing on thread creation, synchronization mechanisms, and race condition prevention.
 
 In this simulation, a number of philosophers sit around a table. Each philosopher alternates between eating, sleeping, and thinking. To eat, a philosopher must hold two forks (shared resources). The challenge is to coordinate access to these shared resources using mutexes while ensuring:
 
@@ -77,15 +77,13 @@ make re
 
 ## Resources
 
-### Classical References
+### References
 
-* Edsger W. Dijkstra — The Dining Philosophers Problem (1965)
-* POSIX Threads Programming (pthreads documentation)
-* man pthread_create
-* man pthread_mutex_init
-* man gettimeofday
+* [Edsger W. Dijkstra — The Dining Philosophers Problem (Wikipedia)](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
+* [man7 pthreads documentation](https://man7.org/linux/man-pages/man7/pthreads.7.html)
+* [Understanding Threads in C (Medium)](https://medium.com/@akshatarhabib/understanding-threads-in-c-c9feb5e9372a)
 
-Additional conceptual references:
+Conceptual references:
 
 * Concurrency and Multithreading fundamentals
 * Race Conditions and Mutual Exclusion
